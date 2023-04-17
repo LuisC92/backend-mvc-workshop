@@ -3,7 +3,6 @@
 **!!! FIRST STEP REQUIRED BEFORE STARTING THE FIRST EXERCISE!!!!!**
 
 ---
-- One element of the group will:
     - Clone this project.
     - Create a new branch.
 
