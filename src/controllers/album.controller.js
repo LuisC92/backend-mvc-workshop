@@ -26,7 +26,7 @@ const getAlbumsById = (req, res) => {
 };
 
 const createAlbum = (req, res) => {
-//   console.log(req.body);
+  //   console.log(req.body);
   Album.create(req.body)
     .then((result) => {
       const createdAlbum = {
@@ -44,18 +44,39 @@ const createAlbum = (req, res) => {
     });
 };
 
-
 const updateAlbum = (req, res) => {
-    const {id} = req.params
-    const body = req.body
-    console.log(id)
-    console.log(body)
-}
+  const { id } = req.params;
+  const body = req.body;
+  Album.edit(id, body)
+    .then((results) => {
+      res.status(200).send("The album has been updated!");
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error retrieving albums from db.");
+    });
+};
 
+const deleteAlbum = (req, res) => {
+  const { id } = req.params;
+  Album.deleteAlb(id)
+    .then((results) => {
+      if (results.affectedRows) {
+        res.status(202).send(`The album with id ${id} has been deleted!`);
+      } else {
+        res.status(404).send(`Album with id ${id} was not found`);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error retrieving albums from db.");
+    });
+};
 
 module.exports = {
   getAllAlbums,
   getAlbumsById,
   createAlbum,
   updateAlbum,
+  deleteAlbum,
 };

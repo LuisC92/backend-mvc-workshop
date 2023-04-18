@@ -14,5 +14,8 @@ albumRouter.post("/", AlbumController.createAlbum)
 //* as a user, I want to be able to modify an album.
 albumRouter.put("/:id", AlbumController.updateAlbum)
 
+//* as a user, I want to be able to delete an album.
+albumRouter.delete("/:id", AlbumController.deleteAlbum)
+
 
 module.exports = albumRouter

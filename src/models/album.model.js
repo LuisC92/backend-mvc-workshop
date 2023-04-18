@@ -16,8 +16,22 @@ const create = (album) => {
     .then(([results]) => results);
 };
 
+const edit = (id, body) => {
+  return database
+    .query("Update album set ? Where id = ?", [body, id])
+    .then(([results]) => results);
+};
+
+const deleteAlb = (id) => {
+  return database
+    .query("Delete from album where id = ?", id)
+    .then(([results]) => results);
+};
+
 module.exports = {
   getAll,
   getById,
-  create
+  create,
+  edit,
+  deleteAlb,
 };
