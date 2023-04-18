@@ -11,5 +11,8 @@ albumRouter.get("/:id", AlbumController.getAlbumsById)
 //* as a user, I want to be able to create a new album.
 albumRouter.post("/", AlbumController.createAlbum)
 
+//* as a user, I want to be able to modify an album.
+albumRouter.put("/:id", AlbumController.updateAlbum)
+
 
 module.exports = albumRouter

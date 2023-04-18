@@ -44,8 +44,18 @@ const createAlbum = (req, res) => {
     });
 };
 
+
+const updateAlbum = (req, res) => {
+    const {id} = req.params
+    const body = req.body
+    console.log(id)
+    console.log(body)
+}
+
+
 module.exports = {
   getAllAlbums,
   getAlbumsById,
   createAlbum,
+  updateAlbum,
 };
